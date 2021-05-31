@@ -9,8 +9,9 @@
 /* Macro and tapping behaviour */
 #define IGNORE_MOD_TAP_INTERRUPT
 #undef PERMISSIVE_HOLD
-#define TAPPING_TERM 150
-//#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 200
+// #define TAPPING_FORCE_HOLD
+#define TAPPING_FORCE_HOLD_PER_KEY
 
 #ifdef UNICODE_ENABLE
 #  define UNICODE_SELECTED_MODES UC_LNX
