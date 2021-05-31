@@ -1,8 +1,8 @@
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   #ifdef OLED_DRIVER_ENABLE
-    if (record->event.pressed) {  
+    if (record->event.pressed) {
       idle_timer = timer_read();
-      add_keylog(keycode); 
+      add_keylog(keycode);
     }
   #endif
   switch (keycode) {
@@ -65,7 +65,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING(SS_LGUI("x"));
         }
         return false;
-      } 
+      }
     case PASTE:
       if (record->event.pressed) {
         if (!copy_mode_osx) {
@@ -74,7 +74,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
           SEND_STRING(SS_LGUI("v"));
         }
-      } 
+      }
       return false;
     #ifdef UNICODE_ENABLE
       // Some Emojis
@@ -209,4 +209,22 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     break;
   }
   return state;
+}
+
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LGT(KC_A):
+        case TAT(KC_R):
+        case LCT(KC_S):
+        case LST(KC_T):
+        case AGT(KC_G):
+        case AGT(KC_J):
+        case RST(KC_N):
+        case RCT(KC_E):
+        case TAT(KC_I):
+        case RGT(KC_O):
+            return true;
+        default:
+            return false;
+    }
 }

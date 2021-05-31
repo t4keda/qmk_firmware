@@ -57,6 +57,8 @@ enum keycodes {
 #define RGT(X) RGUI_T(X)
 #define TAT(X) LALT_T(X)
 #define AGT(X) RALT_T(X)
+//GACS
+//CAGS
 
 // Modifiers
 #define LT_ESC LT(_AD, KC_ESC)
