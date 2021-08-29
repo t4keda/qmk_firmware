@@ -6,6 +6,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
   #endif
   switch (keycode) {
+    case GAMING:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_GMG);
+      }
+      return false;
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QW);
@@ -184,10 +189,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define RBG_VAL 120
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch(biton32(state)) {
-  case _EM:
-    // Orange
-    rgblight_sethsv_noeeprom(HSV_ORANGE);
-    break;
   case _AD:
     // Purple
     rgblight_sethsv_noeeprom(HSV_PURPLE);
@@ -211,7 +212,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return state;
 }
 
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+/*bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LGT(KC_A):
         case TAT(KC_R):
@@ -227,4 +228,4 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
         default:
             return false;
     }
-}
+}*/
