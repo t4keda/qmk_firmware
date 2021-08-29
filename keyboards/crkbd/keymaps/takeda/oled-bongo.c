@@ -76,6 +76,9 @@ void render_default_layer_state(void) {
     case _QW:
       oled_write_P(PSTR(" QRTY"), false);
       break;
+    case _GMG:
+      oled_write_P(PSTR(" GAME"), false);
+      break;
     case _DH:
       oled_write_P(PSTR(" COLE"), false);
       break;
@@ -99,9 +102,6 @@ void render_layer_state(void) {
       break;
     case _AD:
       oled_write_P(PSTR(" ADJ "), false);
-      break;
-    case _EM:
-      oled_write_P(PSTR(" EMO "), false);
       break;
     default:
       oled_write_P(PSTR(" UNK "), false);

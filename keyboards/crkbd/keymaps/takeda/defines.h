@@ -4,10 +4,10 @@ extern keymap_config_t keymap_config;
 #define _DH 0
 #define _QW 1
 #define _DV 2
-#define _LO 3
-#define _RA 4
-#define _AD 5
-#define _EM 6
+#define _GMG 3
+#define _LO 4
+#define _RA 5
+#define _AD 6
 
 #define IDLE_TIMEOUT 5000
 #define IDLE_SLEEP 60000
@@ -41,7 +41,8 @@ enum keycodes {
   M_MAC_CHG,
   COPY,
   CUT,
-  PASTE
+  PASTE,
+  GAMING
 };
 
 // Shortcuts
@@ -57,6 +58,9 @@ enum keycodes {
 #define RGT(X) RGUI_T(X)
 #define TAT(X) LALT_T(X)
 #define AGT(X) RALT_T(X)
+#define MCPY(X) LT(COPY, X)
+#define MCUT(X) LT(CUT, X)
+#define MPST(X) LT(PASTE, X)
 //GACS
 //CAGS
 
