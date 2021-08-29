@@ -66,19 +66,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   /* Gaming
    * ,-----------------------------------------.         ,-----------------------------------------.
-   * |   [  |   Q  |   W  |   E  |   R  |   T  |         |   1  |   2  |   3  |   4  |   P  |   ]  |
+   * |   [  |   Q  |   W  |   E  |   R  |   T  |         |   1  |   2  |   3  |   4  |   I  |   ]  |
    * |------+------+------+------+------+------|         |------+------+------+------+------+------|
-   * |  SFT |   A  |   S  |   D  |   F  |   G  |         |   5  |   6  |   7  |   8  |   ;  |   '  |
+   * |  SFT |   A  |   S  |   D  |   F  |   G  |         |   5  |   6  |   7  |   8  |   J  |   '  |
    * |------+------+------+------+------+------|         |------+------+------+------+------+------|
-   * | LCTL |   Z  |   X  |   C  |   V  |   B  |         |   9  |   0  |   ,  |   .  |   /  |   =  |
+   * | LCTL |   Z  |   X  |   C  |   V  |   B  |         |   9  |   0  |   ,  |   .  |   N  |  Esc |
    * `------+------+------+------+------+------+---. ,---+------+------+------+------+------+------'
    *                          |Alt/AD|Tab/SH|Spc/Lo| |Bks/Up|Del/SH| ralt |
    *                          `--------------------' `--------------------'
    */
   [_GMG] = LAYOUT (
-    KC_LBRC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_1,    KC_2,    KC_3,    KC_4,    KC_P, KC_RBRC, \
-    KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_5,    KC_6,    KC_7,    KC_8, KC_SCLN, _______, \
-    KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_9,    KC_0, _______, _______, _______,  KC_ESC, \
+    KC_LBRC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_1,    KC_2,    KC_3,    KC_4,    KC_I, KC_RBRC, \
+    KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_5,    KC_6,    KC_7,    KC_8,    KC_J, _______, \
+    KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_9,    KC_0, _______, _______,    KC_N,  KC_ESC, \
                                LT(_AD, KC_LALT), _______, _______, _______, _______, KC_RALT  \
   ),
   /* Lower
