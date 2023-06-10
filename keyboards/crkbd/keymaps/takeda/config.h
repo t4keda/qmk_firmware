@@ -7,7 +7,7 @@
 #define FORCE_NKRO
 
 /* Macro and tapping behaviour */
-#define IGNORE_MOD_TAP_INTERRUPT
+//#define IGNORE_MOD_TAP_INTERRUPT
 #undef PERMISSIVE_HOLD
 #define TAPPING_TERM 200
 // #define TAPPING_FORCE_HOLD
