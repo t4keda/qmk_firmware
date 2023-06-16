@@ -4,9 +4,8 @@
 
 bool copy_mode_osx = true;
 
-#ifdef OLED_DRIVER_ENABLE
-// #   include "oled.c"
-#   include "oled-bongo.c"
+#ifdef OLED_ENABLE
+#   include "oled.c"
 #endif
 
 #include "functions.c"

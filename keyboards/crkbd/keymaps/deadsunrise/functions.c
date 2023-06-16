@@ -1,7 +1,6 @@
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  #ifdef OLED_DRIVER_ENABLE
+  #ifdef OLED_ENABLE
     if (record->event.pressed) {
-      idle_timer = timer_read();
       add_keylog(keycode);
     }
   #endif
@@ -185,32 +184,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 };
-
-#define RBG_VAL 120
-layer_state_t layer_state_set_user(layer_state_t state) {
-  switch(biton32(state)) {
-  case _AD:
-    // Purple
-    rgblight_sethsv_noeeprom(HSV_PURPLE);
-    break;
-  case _RA:
-    // Red
-    rgblight_sethsv_noeeprom(HSV_RED);
-    break;
-  case _LO:
-    // Dark Blue
-    rgblight_sethsv_noeeprom(HSV_BLUE);
-    break;
-  case _DV:
-  case _QW:
-  case _DH:
-  default:
-    // green-ish
-    rgblight_sethsv_noeeprom(HSV_GREEN);
-    break;
-  }
-  return state;
-}
 
 /*bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
