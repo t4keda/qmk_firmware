@@ -1,5 +1,6 @@
+#include <print.h>
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  #ifdef OLED_DRIVER_ENABLE
+  #ifdef OLED_ENABLE
     if (record->event.pressed) {
       idle_timer = timer_read();
       add_keylog(keycode);

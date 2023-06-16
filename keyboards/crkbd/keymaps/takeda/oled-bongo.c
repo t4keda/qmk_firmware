@@ -1,4 +1,4 @@
-static uint16_t idle_timer = 0;
+static uint16_t idle_timer;
 static char     keylog_str[6] = {};
 static uint16_t log_timer = 0;
 static const char code_to_name[60] = {' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\', '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
@@ -33,12 +33,14 @@ static const char PROGMEM tap[TAP_FRAMES][ANIM_SIZE] = {
     },
 };
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (is_master) {
+  idle_timer = timer_read();
+  if (is_keyboard_master()) {
     return OLED_ROTATION_270;
   } else {
     return rotation;
   }
 }
+
 
 void add_keylog(uint16_t keycode) {
   if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) || (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) {
@@ -177,17 +179,18 @@ void render_status_secondary(void) {
       current_tap_frame = 0;
     }
   }
+
   render_anim();
   oled_set_cursor(0,6);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
   if (idle_timer == 0 || timer_elapsed(idle_timer) > IDLE_SLEEP) {
     if (is_oled_on()) {
       oled_off();
       idle_timer = 0;
     }
-    return;
+    return false;
   }
 
   if (!is_oled_on()) {
@@ -195,9 +198,11 @@ void oled_task_user(void) {
   }
 
   update_log();
-  if (is_master) {
+  if (is_keyboard_master()) {
     render_status_main();  // Renders the current keyboard state (layer, lock, caps, scroll, etc)
   } else {
     render_status_secondary();
   }
+
+  return false;
 }
