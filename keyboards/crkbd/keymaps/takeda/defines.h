@@ -10,7 +10,7 @@ extern keymap_config_t keymap_config;
 #define _AD 6
 
 #define IDLE_TIMEOUT 5000
-#define IDLE_SLEEP 60000
+#define IDLE_SLEEP 10000
 
 enum keycodes {
   MODDH = SAFE_RANGE,

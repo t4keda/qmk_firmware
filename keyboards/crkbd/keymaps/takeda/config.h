@@ -3,7 +3,7 @@
 /* Select hand configuration */
 #define MASTER_LEFT
 
-#define USE_SERIAL_PD2
+//#define USE_SERIAL_PD2
 #define FORCE_NKRO
 
 /* Macro and tapping behaviour */
@@ -13,6 +13,7 @@
 // #define TAPPING_FORCE_HOLD
 #define TAPPING_FORCE_HOLD_PER_KEY
 
+#define SPLIT_ACTIVITY_ENABLE
 #ifdef UNICODE_ENABLE
 #  define UNICODE_SELECTED_MODES UC_LNX
 #endif
@@ -21,9 +22,14 @@
 #  define QMK_KEYS_PER_SCAN 4
 #endif  // !QMK_KEYS_PER_SCAN
 
+#define SPLIT_TRANSPORT_MIRROR
+#define SPLIT_LAYER_STATE_ENABLE
+
 #ifdef RGBLIGHT_ENABLE
 #  undef RGBLED_NUM
-#  define RGBLED_NUM 27
+#  undef RGBLED_SPLIT
+#  define RGBLED_NUM 54
+#  define RGBLED_SPLIT {27, 27}
 #  define RGBLIGHT_HUE_STEP 8
 #  define RGBLIGHT_SAT_STEP 8
 #  define RGBLIGHT_VAL_STEP 5
@@ -85,8 +91,8 @@
 #  endif
 #endif // RGB_MATRIX_ENABLE
 
-#ifdef OLED_DRIVER_ENABLE
-#  define OLED_DISABLE_TIMEOUT
+#ifdef OLED_ENABLE
+#  define OLED_TIMEOUT 60000
 //#  define OLED_FONT_H "keyboards/crkbd/keymaps/oprietop/danger.c"
 #  define OLED_FONT_H "keyboards/crkbd/keymaps/takeda/alps.c"
 #endif
