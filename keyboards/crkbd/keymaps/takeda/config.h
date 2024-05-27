@@ -28,7 +28,6 @@
 #ifdef RGBLIGHT_ENABLE
 #  undef RGBLED_NUM
 #  undef RGBLED_SPLIT
-#  define RGBLED_NUM 54
 #  define RGBLED_SPLIT {27, 27}
 #  define RGBLIGHT_HUE_STEP 8
 #  define RGBLIGHT_SAT_STEP 8
