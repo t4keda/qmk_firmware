@@ -33,8 +33,14 @@
 #  define RGBLIGHT_SAT_STEP 8
 #  define RGBLIGHT_VAL_STEP 5
 #  define RGBLIGHT_LIMIT_VAL 200
-#  define RGBLIGHT_ANIMATIONS
     #define RGBLIGHT_SLEEP
+#define RGBLIGHT_EFFECT_BREATHING
+    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
+    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+    #define RGBLIGHT_EFFECT_SNAKE
+    #define RGBLIGHT_EFFECT_KNIGHT
+    #define RGBLIGHT_EFFECT_CHRISTMAS
+    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
@@ -94,6 +100,7 @@
 #  define OLED_TIMEOUT 60000
 //#  define OLED_FONT_H "keyboards/crkbd/keymaps/oprietop/danger.c"
 #  define OLED_FONT_H "keyboards/crkbd/keymaps/takeda/alps.c"
+//#  define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #endif
 
 /* Mouse Settings */

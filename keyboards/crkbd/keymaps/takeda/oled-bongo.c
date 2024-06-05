@@ -1,7 +1,14 @@
-static uint16_t idle_timer;
-static char     keylog_str[6] = {};
+static uint16_t idle_timer = 0;
 static uint16_t log_timer = 0;
-static const char code_to_name[60] = {' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\', '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
+static char keylog_str[6] = {};
+const char code_to_name[60] = {
+    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
+    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    'R', 'E', 'B', 'T', ' ', ' ', ' ', ' ', ' ', ' ',
+    ' ', ';', '\'', ' ', ',', '.', '/', ' ', ' ', ' '};
+
 
 // #define PREP_FRAMES 1 // uncomment if >1
 
@@ -168,9 +175,9 @@ void render_status_main(void) {
 }
 
 void render_status_secondary(void) {
-  if (idle_timer == 0) {
+  /*if (idle_timer == 0) {
     is_idle = true;
-  } else if (timer_elapsed(idle_timer) < IDLE_TIMEOUT) {
+  } else*/ if (timer_elapsed(idle_timer) < IDLE_TIMEOUT) {
     is_idle = false;
   } else {
     if (!is_idle) {
@@ -186,16 +193,16 @@ void render_status_secondary(void) {
 
 bool oled_task_user(void) {
   if (idle_timer == 0 || timer_elapsed(idle_timer) > IDLE_SLEEP) {
-    if (is_oled_on()) {
+    //if (is_oled_on()) {
       oled_off();
       idle_timer = 0;
-    }
+    //}
     return false;
   }
 
-  if (!is_oled_on()) {
+  //if (!is_oled_on()) {
     oled_on();
-  }
+  //}
 
   update_log();
   if (is_keyboard_master()) {
