@@ -1,4 +1,4 @@
-#include <print.h>
+//#include <print.h>
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   #ifdef OLED_ENABLE
     if (record->event.pressed) {
@@ -191,26 +191,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 layer_state_t layer_state_set_user(layer_state_t state) {
   switch(biton32(state)) {
   case _AD:
-    // Purple
-    rgblight_sethsv_noeeprom(HSV_PURPLE);
+   #ifdef RGBLIGHT_ENABLE
+      // Purple
+      rgblight_sethsv_noeeprom(HSV_PURPLE);
+    #endif
     break;
   case _RA:
-    // Red
-    rgblight_sethsv_noeeprom(HSV_RED);
+   #ifdef RGBLIGHT_ENABLE
+        // Red
+        rgblight_sethsv_noeeprom(HSV_RED);
+    #endif
     break;
   case _LO:
-    // Dark Blue
-    rgblight_sethsv_noeeprom(HSV_BLUE);
+    #ifdef RGBLIGHT_ENABLE
+        // Dark Blue
+        rgblight_sethsv_noeeprom(HSV_BLUE);
+    #endif
     break;
   case _DV:
   case _QW:
   case _DH:
   default:
-    // green-ish
-    rgblight_sethsv_noeeprom(HSV_GREEN);
+    #ifdef RGBLIGHT_ENABLE
+        // green-ish
+        rgblight_sethsv_noeeprom(HSV_GREEN);
+    #endif
     break;
   }
   return state;
+}
+
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  debug_enable=true;
+  debug_matrix=true;
+  debug_keyboard=true;
+  //debug_mouse=true;
 }
 
 /*bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {

@@ -175,9 +175,9 @@ void render_status_main(void) {
 }
 
 void render_status_secondary(void) {
-  /*if (idle_timer == 0) {
+  if (idle_timer == 0) {
     is_idle = true;
-  } else*/ if (timer_elapsed(idle_timer) < IDLE_TIMEOUT) {
+  } else if (timer_elapsed(idle_timer) < IDLE_TIMEOUT) {
     is_idle = false;
   } else {
     if (!is_idle) {
@@ -192,11 +192,12 @@ void render_status_secondary(void) {
 }
 
 bool oled_task_user(void) {
+  //dprintf("%d idle", timer_elapsed(idle_timer));
   if (idle_timer == 0 || timer_elapsed(idle_timer) > IDLE_SLEEP) {
-    //if (is_oled_on()) {
+    if (is_oled_on()) {
       oled_off();
       idle_timer = 0;
-    //}
+    }
     return false;
   }
 

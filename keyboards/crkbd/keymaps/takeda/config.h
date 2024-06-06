@@ -24,6 +24,8 @@
 
 #define SPLIT_TRANSPORT_MIRROR
 #define SPLIT_LAYER_STATE_ENABLE
+//#define SPLIT_OLED_ENABLE
+#define SPLIT_ACTIVITY_ENABLE
 
 #ifdef RGBLIGHT_ENABLE
 #  undef RGBLED_NUM
@@ -39,7 +41,7 @@
     #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
     #define RGBLIGHT_EFFECT_SNAKE
     #define RGBLIGHT_EFFECT_KNIGHT
-    #define RGBLIGHT_EFFECT_CHRISTMAS
+    //#define RGBLIGHT_EFFECT_CHRISTMAS
     #define RGBLIGHT_EFFECT_STATIC_GRADIENT
 #endif
 
@@ -97,7 +99,7 @@
 #endif // RGB_MATRIX_ENABLE
 
 #ifdef OLED_ENABLE
-#  define OLED_TIMEOUT 60000
+//#  define OLED_TIMEOUT 60000
 //#  define OLED_FONT_H "keyboards/crkbd/keymaps/oprietop/danger.c"
 #  define OLED_FONT_H "keyboards/crkbd/keymaps/takeda/alps.c"
 //#  define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
