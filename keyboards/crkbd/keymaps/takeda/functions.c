@@ -228,6 +228,19 @@ void keyboard_post_init_user(void) {
   debug_keyboard=true;
   //debug_mouse=true;
 }
+bool process_detected_host_os_user(os_variant_t detected_os) {
+    switch (detected_os) {
+        case OS_MACOS:
+        case OS_IOS:
+            copy_mode_osx = true;
+            break;
+        default:
+            copy_mode_osx = false;
+            break;
+    }
+
+    return true;
+}
 
 /*bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
